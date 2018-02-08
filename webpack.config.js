@@ -2,17 +2,18 @@ const webpack = require('webpack');
 
 module.exports = {
 	entry:{
-		app:'./src/index.jsx',
-		vendor:['react','react-dom','whatwg-fetch'],
+		app:['./src/index.jsx'],
+		vendor:['react','react-dom','whatwg-fetch','react-router'],
 	},
 	output:{
 		path: __dirname +'/static',
 		filename:'index.bundle.js',
 	},
+	devtool:'source-map',
 	devServer:{
 	    port: 8000,
 	    contentBase: 'static',
-	    proxy: 
+	    proxy:
 	    {
 		      '/api/*': {
 		        target: 'http://localhost:8080'
